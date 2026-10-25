@@ -1,56 +1,28 @@
-# Manual Testing Practice Shop (Flask + HTML + CSS)
+---
 
-A small local demo e-commerce website for learning SQA manual testing. It includes product search/filtering, login, cart, quantity updates, checkout form validation, order confirmation, and contact form validation.
+## SQA Manual Testing Portfolio
 
-## Requirements
-- Python 3.10+ recommended
-- VS Code (optional)
+This section documents my practical learning and activities in Software Quality Assurance (SQA).
 
-## Run on Windows
-1. Extract the ZIP.
-2. Open the `manual_testing_practice_project` folder in VS Code.
-3. Open Terminal > New Terminal.
-4. Create a virtual environment:
-   ```powershell
-   py -m venv .venv
-   ```
-5. Activate it:
-   ```powershell
-   .\.venv\Scripts\Activate.ps1
-   ```
-   If PowerShell blocks activation, use Command Prompt terminal:
-   ```cmd
-   .venv\Scripts\activate.bat
-   ```
-6. Install dependencies:
-   ```powershell
-   pip install -r requirements.txt
-   ```
-7. Start the website:
-   ```powershell
-   python app.py
-   ```
-8. Open `http://127.0.0.1:5000` in your browser.
+### Testing Documentation
+- **Test Plan:** Testing objectives, scope, and approach.
+- **Test Scenarios:** Functional areas to be tested.
+- **Test Cases:** Test steps, expected results, and execution results.
+- **Bug Reports:** Defect descriptions, reproduction steps, and severity.
 
-## Demo login
-- Email: `tester@example.com`
-- Password: `Test123!`
+### Documentation File
+[View SQA Manual Testing Workbook](testing-documentation/SQA%20Manual%20Testing.xlsx)
 
-These are demo-only credentials. Do not use real passwords or personal information.
+### Skills Practiced
+- Manual Functional Testing
+- Positive and Negative Testing
+- Test Case Design
+- Bug Reporting
+- Form Validation Testing
+- Git and GitHub
 
-## Important
-- This is a local learning project, not a production store.
-- No real payment is processed.
-- Contact messages and orders are not saved to a database.
-- `debug=True` is for local practice only. Do not deploy this project publicly.
+### Project Purpose
+This project is part of my practical learning journey in software testing. Testing results and defects should be documented based on actual test execution.
 
-## Suggested testing areas
-- Home page and navigation
-- Product search and price filters
-- Login positive and negative cases
-- Add to cart, multiple products, and quantity updates
-- Checkout required-field validation
-- Contact form validation
-- Page refresh and session behaviour
-- Mobile/responsive layout
-- Direct URL access and empty-cart behaviour
+**Author:** Muhammad Sufyan  
+**GitHub:** https://github.com/msufyan032506-rgb
