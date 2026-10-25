@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <p class="eyebrow">SQA PRACTICE ENVIRONMENT</p>
+  <h1>Test a website like a real QA tester.</h1>
+  <p>Explore products, try login scenarios, update the cart, and validate forms.</p>
+  <a class="button" href="{{ url_for('products') }}">Explore Products</a>
+</section>
+<section class="section-heading">
+  <div><p class="eyebrow">START HERE</p><h2>Featured products</h2></div>
+  <a href="{{ url_for('products') }}">View all products →</a>
+</section>
+<div class="product-grid">
+  {% for product in products %}
+  <article class="product-card">
+    <div class="product-art art-{{ product.id }}"><span>{{ product.name[0] }}</span></div>
+    <div class="product-info">
+      <h3>{{ product.name }}</h3><p>{{ product.description }}</p>
+      <strong>PKR {{ "{:,}".format(product.price) }}</strong>
+      <form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="post">
+        <input type="hidden" name="quantity" value="1">
+        <button class="button full" type="submit">Add to cart</button>
+      </form>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+<section class="notice"><strong>Tester tip:</strong> Try both valid and invalid inputs. Record Expected Result and Actual Result separately.</section>
+{% endblock %}

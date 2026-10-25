@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Checkout{% endblock %}
+{% block content %}
+<div class="page-heading"><p class="eyebrow">DEMO CHECKOUT</p><h1>Delivery details</h1><p>No real payment or delivery will take place.</p></div>
+<div class="checkout-layout">
+  <section class="form-card">
+    <form method="post" novalidate>
+      <label>Full name <span class="required">*</span><input name="name" placeholder="Your full name" value="{{ request.form.get('name', '') }}"></label>
+      <label>City <span class="required">*</span><input name="city" placeholder="Your city" value="{{ request.form.get('city', '') }}"></label>
+      <label>Address <span class="required">*</span><textarea name="address" rows="3" placeholder="Delivery address">{{ request.form.get('address', '') }}</textarea></label>
+      <button class="button full" type="submit">Place demo order</button>
+    </form>
+  </section>
+  <aside class="summary-card"><h2>Order summary</h2>{% for item in items %}<p>{{ item.name }} × {{ item.quantity }} <span class="float-right">PKR {{ "{:,}".format(item.subtotal) }}</span></p>{% endfor %}<div class="total-line"><span>Total</span><strong>PKR {{ "{:,}".format(total) }}</strong></div></aside>
+</div>
+{% endblock %}

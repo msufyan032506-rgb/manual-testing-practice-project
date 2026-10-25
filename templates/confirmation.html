@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Order Confirmation{% endblock %}
+{% block content %}
+<section class="confirmation-card">
+  <div class="success-mark">✓</div><p class="eyebrow">DEMO ORDER</p><h1>Order placed successfully</h1>
+  <p>Thank you, {{ order.name }}. This is a practice confirmation only.</p>
+  <div class="confirmation-details"><p><strong>City:</strong> {{ order.city }}</p><p><strong>Address:</strong> {{ order.address }}</p><p><strong>Total:</strong> PKR {{ "{:,}".format(order.total) }}</p></div>
+  <a class="button" href="{{ url_for('products') }}">Back to products</a>
+</section>
+{% endblock %}

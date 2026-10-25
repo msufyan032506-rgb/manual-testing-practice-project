@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<section class="form-card narrow">
+  <p class="eyebrow">GET IN TOUCH</p><h1>Contact us</h1><p class="muted">Practice required-field and email validation.</p>
+  <form method="post" novalidate>
+    <label>Name<input name="name" placeholder="Your name" value="{{ request.form.get('name', '') }}"></label>
+    <label>Email<input type="text" name="email" placeholder="you@example.com" value="{{ request.form.get('email', '') }}"></label>
+    <label>Message<textarea name="message" rows="4" placeholder="Write your message"></textarea></label>
+    <button class="button full" type="submit">Send message</button>
+  </form>
+</section>
+{% endblock %}

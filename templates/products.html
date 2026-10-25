@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Products{% endblock %}
+{% block content %}
+<div class="page-heading"><p class="eyebrow">CATALOGUE</p><h1>Products</h1><p>Use search and filters to practice functional testing.</p></div>
+<form class="filter-bar" method="get" action="{{ url_for('products') }}">
+  <label>Search products
+    <input type="search" name="q" placeholder="e.g. mouse" value="{{ q }}">
+  </label>
+  <label>Price filter
+    <select name="category">
+      <option value="all" {% if category == 'all' %}selected{% endif %}>All prices</option>
+      <option value="budget" {% if category == 'budget' %}selected{% endif %}>Under PKR 1,500</option>
+      <option value="premium" {% if category == 'premium' %}selected{% endif %}>PKR 1,500 and above</option>
+    </select>
+  </label>
+  <button class="button" type="submit">Apply</button>
+  <a class="button secondary" href="{{ url_for('products') }}">Reset</a>
+</form>
+{% if products %}
+<div class="product-grid">
+  {% for product in products %}
+  <article class="product-card">
+    <div class="product-art art-{{ product.id }}"><span>{{ product.name[0] }}</span></div>
+    <div class="product-info">
+      <h3>{{ product.name }}</h3><p>{{ product.description }}</p>
+      <strong>PKR {{ "{:,}".format(product.price) }}</strong>
+      <form class="add-form" action="{{ url_for('add_to_cart', product_id=product.id) }}" method="post">
+        <label>Quantity <input type="number" name="quantity" min="1" max="99" value="1"></label>
+        <button class="button full" type="submit">Add to cart</button>
+      </form>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty-state"><h2>No products found</h2><p>Try a different search term or reset the filter.</p><a class="button" href="{{ url_for('products') }}">Show all products</a></div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<section class="form-card narrow">
+  <p class="eyebrow">ACCOUNT</p><h1>Login</h1>
+  <p class="muted">Use the demo account shown below, or try invalid inputs for testing.</p>
+  <form method="post" novalidate>
+    <label>Email address
+      <input type="email" name="email" placeholder="you@example.com" autocomplete="username">
+    </label>
+    <label>Password
+      <input type="password" name="password" placeholder="Enter password" autocomplete="current-password">
+    </label>
+    <button class="button full" type="submit">Login</button>
+  </form>
+  <div class="demo-credentials"><strong>Demo credentials</strong><br>Email: tester@example.com<br>Password: Test123!</div>
+</section>
+{% endblock %}

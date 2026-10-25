@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Cart{% endblock %}
+{% block content %}
+<div class="page-heading"><p class="eyebrow">YOUR ITEMS</p><h1>Shopping cart</h1></div>
+{% if items %}
+<div class="cart-layout">
+  <section class="cart-items">
+    {% for item in items %}
+    <article class="cart-row">
+      <div class="mini-art">{{ item.name[0] }}</div>
+      <div class="cart-product"><h3>{{ item.name }}</h3><p>PKR {{ "{:,}".format(item.price) }} each</p></div>
+      <form class="quantity-form" action="{{ url_for('update_cart', product_id=item.id) }}" method="post">
+        <label>Qty <input type="number" name="quantity" min="0" max="99" value="{{ item.quantity }}"></label>
+        <button class="button secondary" type="submit">Update</button>
+      </form>
+      <strong>PKR {{ "{:,}".format(item.subtotal) }}</strong>
+    </article>
+    {% endfor %}
+  </section>
+  <aside class="summary-card"><h2>Order summary</h2><p>Items: {{ cart_count }}</p><div class="total-line"><span>Total</span><strong>PKR {{ "{:,}".format(total) }}</strong></div><a class="button full" href="{{ url_for('checkout') }}">Proceed to checkout</a><a class="text-link" href="{{ url_for('products') }}">Continue shopping</a></aside>
+</div>
+{% else %}
+<div class="empty-state"><h2>Your cart is empty</h2><p>Add one or more products to start testing.</p><a class="button" href="{{ url_for('products') }}">Browse products</a></div>
+{% endif %}
+{% endblock %}
